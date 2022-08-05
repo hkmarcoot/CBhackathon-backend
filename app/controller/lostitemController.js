@@ -5,6 +5,12 @@ const bodyParser = require("body-parser");
 const lostitemRepository = require("../repository/lostitemRepository");
 const RepositoryError = require("../exceptions/repositoryError");
 
+var cors = require("cors");
+
+var corsOptions = {
+  origin: false,
+};
+
 // Configuring body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -15,6 +21,9 @@ app.get("/lostitem", async function (req, res) {
     const allLostitems = await lostitemRepository.findAllLostitems();
     //req.params.playlistId
 
+    res.append("Access-Control-Allow-Origin", "*");
+    res.append("Access-Control-Allow-Methods", "*");
+    res.append("Access-Control-Allow-Headers", "*");
     res.statusCode = 200; // ok
     res.send(allLostitems);
   } catch (error) {

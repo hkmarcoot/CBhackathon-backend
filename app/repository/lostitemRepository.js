@@ -169,10 +169,11 @@ async function insertOrUpdate(key, lostitem) {
 
 //findAllLostitems
 
+//where type='lostitem' AND lostitem.itemFounder IS NOT MISSING
+
 async function findAllLostitems() {
-  var queryString =
-    "select lostitem.* from 'lostitem' where type='lostitem' AND lostitem.itemFounder IS NOT MISSING";
-  // const options = null;
+  var queryString = "select lostitem.* from lostandfound.foundify.lostitem";
+  // const options =
   // {
   //   parameters: {
   //     username: username,

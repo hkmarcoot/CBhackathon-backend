@@ -5,6 +5,7 @@ const path = require("path");
 const logger = require("morgan");
 
 //import cors from "cors";
+//var cors = require('cors');
 
 //const port = 3000;
 const port = process.env.HTTP_PORT;
